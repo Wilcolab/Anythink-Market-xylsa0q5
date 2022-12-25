@@ -31,6 +31,7 @@ class ItemsController < ApplicationController
             bio: item.user.bio,
             image: item.user.image || 'https://static.productionready.io/images/smiley-cyrus.jpg',
             following: signed_in? ? current_user.following?(item.user) : false,
+            isVerified: item.user.isVerified,
           },
           favorited: signed_in? ? current_user.favorited?(item) : false,
           favorites_count: item.favorites_count || 0
